@@ -63,6 +63,8 @@ try
     foreach (var t in tags.OrderBy(t => t, StringComparer.OrdinalIgnoreCase))
         Console.WriteLine($"- {t}");
 
+    Console.ReadLine();
+
     return 0;
 }
 catch (HttpRequestException ex)
@@ -95,8 +97,8 @@ static HttpClient CreateAdoHttpClient(string orgUrl, string pat)
 static async Task<List<string>> ListProjectTagsAsync(HttpClient http, string project)
 {
     // GET https://dev.azure.com/{org}/{project}/_apis/wit/tags?api-version=7.1
-    var url = $"{Uri.EscapeDataString(project)}/_apis/wit/tags?api-version=7.1";
-
+    var url = $"{http.BaseAddress}{project}/_apis/wit/tags?api-version=7.1";
+    
     using var resp = await http.GetAsync(url);
     var body = await resp.Content.ReadAsStringAsync();
 
