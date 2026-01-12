@@ -416,3 +416,6 @@ FodyWeavers.xsd
 *.msix
 *.msm
 *.msp
+
+# Visual Studio launch profiles (may contain secrets)
+**/Properties/launchSettings.json
