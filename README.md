@@ -7,5 +7,5 @@ Backlog Butler reads Azure DevOps credentials from environment variables.
 
 ### PowerShell (Windows)
 ```powershell
-.\scripts\set-env.ps1
+.\scripts\set-env.ps1 or PowerShell -NoProfile -ExecutionPolicy Bypass -File .\scripts\set-env.ps1
 dotnet run --project src/BacklogButler.Cli
